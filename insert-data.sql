@@ -62,7 +62,7 @@ INSERT INTO menu_items (menu_item_name, description, price, category) VALUES
 
 -- 5. Populate Orders table
 INSERT INTO orders (order_date, status, employee_id, client_id, table_id) VALUES
-('2026-11-01 12:30:00', 'completed', 1, 1, 1),
+('2026-11-01 10:30:00', 'completed', 1, 1, 1),
 ('2026-11-01 13:15:00', 'completed', 2, 2, 3),
 ('2026-11-02 18:00:00', 'completed', 7, 3, 4),
 ('2026-11-02 19:45:00', 'completed', 1, 4, 5),

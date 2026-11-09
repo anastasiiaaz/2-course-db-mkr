@@ -10,8 +10,7 @@ values ('Arsenii','Khmelnytskyi', 'manager', '+380981159933'),
 insert into tables (table_number, location, capacity )
 values (15,'bar zone', 4),(16,'vip room', 2),(17,'terrace', 6);
 
-insert into order_items (quantity, order_id, item_id) values
-(2, 5, 13),(2, 6, 11),(1, 7, 7);
+insert into order_items (quantity, order_id, item_id) values (2, 5, 13),(2, 6, 11),(1, 7, 7);
 
 select * from order_items;
 select * from employees;
@@ -37,7 +36,7 @@ where category = 'soup';
 
 -- 2 delete запити з будь-яких таблиць
 
-select * from order_items
+select * from order_items;
 delete from order_items 
 where order_id = 7 and item_id = 5;
 select * from order_items;
@@ -51,7 +50,7 @@ where menu_item_name = 'Beef Carpaccio with Parmesan' ;
 select menu_item_name, price, category
 from menu_items
 where menu_item_name = 'Beef Carpaccio with Parmesan';
-
+-- physical delete works fine here as the item was never ordered, but its better to use soft delete (set is_deleted=true)
 
 -- 2 прості select:
 -- підготувати чек з чайовими
@@ -59,7 +58,7 @@ where menu_item_name = 'Beef Carpaccio with Parmesan';
 select order_id, table_number, order_date, menu_item_name, quantity, price, oi.quantity * mi.price as item_price, sum(oi.quantity*mi.price) over (partition by oi.order_id) as total_price, round(sum(oi.quantity*mi.price) over (partition by oi.order_id)*0.1, 2) as tips from tables
 inner join orders o using (table_id)
 inner join order_items oi using (order_id)
-inner join menu_items mi on oi.item_id=mi.menu_item_id
+inner join menu_items mi on oi.item_id=mi.menu_item_id;
 
 
 -- знайти всі не зайняті столики (столики, для яких немає
