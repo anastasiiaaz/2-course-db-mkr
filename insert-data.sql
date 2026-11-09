@@ -35,12 +35,13 @@ INSERT INTO employees (first_name, last_name, role, phone, hire_date) VALUES
 
 -- 3. Populate Tables entity
 INSERT INTO tables (table_number, capacity, location) VALUES
-(1, 2, 'Main Hall - Window'),
-(2, 2, 'Main Hall - Center'),
-(3, 4, 'Main Hall - Wall'),
-(4, 4, 'Terrace'),
-(5, 6, 'VIP Room'),
-(6, 8, 'Banquet Area');
+(1, 2, 'main_hall'),
+(2, 2, 'terrace'),
+(3, 4, 'terrace'),
+(4, 4, 'main_hall'),
+(5, 6, 'vip_room'),
+(6, 8, 'bar_zone');
+
 
 -- 4. Populate Menu Items table
 INSERT INTO menu_items (menu_item_name, description, price, category) VALUES
@@ -68,6 +69,7 @@ INSERT INTO orders (order_date, status, employee_id, client_id, table_id) VALUES
 ('2026-11-03 14:10:00', 'ready', 8, 5, 2),
 ('2026-11-03 15:30:00', 'preparing', 2, 6, 3),
 ('2026-11-03 16:00:00', 'new', 7, 7, 1);
+
 
 -- 6. Populate Order Items table
 INSERT INTO order_items (quantity, order_id, item_id) VALUES

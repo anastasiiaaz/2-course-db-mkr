@@ -19,6 +19,7 @@ drop type if exists employee_role cascade;
 create type category as enum ('main course', 'side dish', 'dessert', 'beverage', 'appetizer', 'salad', 'soup');
 create type order_status as enum ('new', 'preparing', 'ready', 'completed', 'cancelled');
 create type employee_role as enum ('waiter', 'chef', 'manager', 'bartender');
+create type table_location as enum ('main_hall', 'terrace', 'vip_room', 'bar_zone');
 
 create table if not exists clients
 (
@@ -44,8 +45,8 @@ create table if not exists tables
 (
   table_id     int generated always as identity primary key,
   table_number integer not null unique check (table_number > 0),
+  location     table_location not null,
   capacity     integer not null check (capacity > 0),
-  location     text    not null,
   is_deleted   boolean not null default false
 );
 
