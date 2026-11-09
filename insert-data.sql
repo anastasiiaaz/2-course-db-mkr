@@ -35,12 +35,12 @@ INSERT INTO employees (first_name, last_name, role, phone, hire_date) VALUES
 
 -- 3. Populate Tables entity
 INSERT INTO tables (table_number, capacity, location) VALUES
-(1, 2, 'main_hall'),
+(1, 2, 'main hall'),
 (2, 2, 'terrace'),
 (3, 4, 'terrace'),
-(4, 4, 'main_hall'),
-(5, 6, 'vip_room'),
-(6, 8, 'bar_zone');
+(4, 4, 'main hall'),
+(5, 6, 'vip room'),
+(6, 8, 'bar zone');
 
 
 -- 4. Populate Menu Items table
